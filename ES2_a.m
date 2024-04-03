@@ -23,14 +23,14 @@ dati = iddata(y, [u1, u2], Ts);
 %considerando una velocità media dell'acqua di 1m/s vuol dire che l'acqua
 %percorre 80km al giorno
 %https://www.researchgate.net/figure/Il-bacino-idrografi-co-del-fi-ume-Oglio-a-nord-del-lago-dIseo-provincia-di-Brescia-i_fig17_268349106
-na_max=9;
-na_min=9;
-n_precipitazioni_max=45;
-n_precipitazioni_min=45;
-n_temperatura_max=3;
-n_temperatura_min=3;
+na_max=5;
+na_min=1;
+n_precipitazioni_max=5;
+n_precipitazioni_min=1;
+n_temperatura_max=5;
+n_temperatura_min=1;
 nk=0;
-passo_previsione=24; %tra quante ore deve predire il modello
+passo_previsione=32; %tra quante ore deve predire il modello
 
 fineIdentificazione=78888; %valore del 1 gen 2019
 dataset_identificazione=dati(1:fineIdentificazione);
