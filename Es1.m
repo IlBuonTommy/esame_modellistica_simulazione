@@ -45,7 +45,7 @@ syms x y  % definisco variabili di tipo simbolico
 
 switch scelta
 
-      case 1 %CASO A
+    case 1 %CASO A Migrazione di Prede
 
           C = c;
           D = 0;
@@ -69,7 +69,7 @@ switch scelta
 
           f1 = @(t, s) [r*s(1) - a*s(1)*s(2) + C; b*s(1)*s(2) - m*s(2) + D];
 
-      case 2 %CASO B
+    case 2 %CASO B migrazione di Predatori
 
           C = 0;
           D = d;
@@ -93,7 +93,7 @@ switch scelta
 
           f1 = @(t, s) [r*s(1) - a*s(1)*s(2) + C; b*s(1)*s(2) - m*s(2) + D];
 
-      case 3 %CASO C
+    case 3 %CASO C Migrazione di poche Prede
 
           C = c/x;
           D = 0;
@@ -119,7 +119,7 @@ switch scelta
 
           f1 = @(t, s) [r*s(1) - a*s(1)*s(2) + c/s(1); b*s(1)*s(2) - m*s(2) + D];
 
-      case 4 %CASO D
+    case 4 %CASO D Migrazione di pochi predatori
 
           C = 0;
           D = d/y;
@@ -143,7 +143,7 @@ switch scelta
           %   Stabilità: Instabile a sella
 
           f1 = @(t, s) [r*s(1) - a*s(1)*s(2) + C; b*s(1)*s(2) - m*s(2) + d/s(2)];
-      case 5  %CASO E
+    case 5  %CASO E Nessuna migrazione
 
           C = 0;
           D = 0;
