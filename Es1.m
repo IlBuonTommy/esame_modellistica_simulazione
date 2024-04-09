@@ -4,7 +4,7 @@
 % prendere esempio (ATTENZIONE: Questi articoli spesso contegono analisi piu' specifiche e complesse di quelle
 % richieste: limitarsi a quanto richiesto dall’elaborato).
 
-clear all;
+clear
 clc
 
 % Variabili di stato:
@@ -192,8 +192,8 @@ xeq_s = solve(f==0);
 xeq1_s = [xeq_s.x(1), xeq_s.y(1)];
 xeq2_s = [xeq_s.x(2), xeq_s.y(2)];
 
-xeq1 = double(xeq1_s)
-xeq2 = double(xeq2_s)
+xeq1 = double(xeq1_s);
+xeq2 = double(xeq2_s);
 
 % STABILITA' PUNTI DI EQUILIBRIO
 % Per determinare la stabilità di un punto di equilibrio, calcoliamo gli 
@@ -207,7 +207,7 @@ xeq2 = double(xeq2_s)
 % Devo calcolare la jacobiana di f nelle direzioni di x,y
 A_s = jacobian(f,[x,y]); % [x,y] indica l'ordine (e quindi la colonna) delle derivate parziali
 % Calcolo la matrice A nel pto di equilibrio 1
-A1_s = subs(A_s,[x,y],xeq1)
+A1_s = subs(A_s,[x,y],xeq1);
 A1 = double(A1_s); % A questo punto A1 è una matrice di numeri reali e a me servono i suoi autovalori
 aval1 = eig(A1);
 A2_s = subs(A_s,[x,y],xeq2);
