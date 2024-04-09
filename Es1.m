@@ -66,6 +66,11 @@ switch scelta
           %  -0.0075 - 0.1515i
           %  autovalore complesso, il punto di equilibrio è un fuoco stabile (parte Reale<0) o un centro.
           %  Stabilità: Stabile a spirale
+          % Per ⁠ xeq1 ⁠, hai un punto di sella instabile, poiché uno degli autovalori (⁠ aval1 ⁠) è positivo e l'altro è negativo.
+          % 
+          % Per ⁠ xeq2 ⁠, hai una spirale stabile, poiché entrambi gli autovalori (⁠ aval2 ⁠) hanno parte reale negativa, ma anche una parte immaginaria non nulla, il che implica una soluzione a spirale attorno al punto di equilibrio.
+
+
 
           f1 = @(t, s) [r*s(1) - a*s(1)*s(2) + C; b*s(1)*s(2) - m*s(2) + D];
 
@@ -90,6 +95,10 @@ switch scelta
           %  -0.0050 - 0.1377i
           %  Due autovalori complessi con parte reale negativa (-0.0050)
           %  Stabilità: Stabile a spirale
+          % Per ⁠ xeq1 ⁠, hai un punto di sella instabile, poiché uno degli autovalori (⁠ aval1 ⁠) è positivo e l'altro è negativo.
+          % 
+          % Per ⁠ xeq2 ⁠, hai una spirale stabile, poiché entrambi gli autovalori (⁠ aval2 ⁠) hanno parte reale negativa, ma anche una parte immaginaria non nulla, il che implica una soluzione a spirale attorno al punto di equilibrio.
+
 
           f1 = @(t, s) [r*s(1) - a*s(1)*s(2) + C; b*s(1)*s(2) - m*s(2) + D];
 
@@ -113,6 +122,10 @@ switch scelta
           %  0.2000 + 0.0000i
           %  -0.2000 - 0.0949i
           %  Stabilità: Instabile a sella
+          % Per ⁠ xeq1 ⁠, hai una spirale stabile, poiché entrambi gli autovalori (⁠ aval2 ⁠) hanno parte reale negativa, ma anche una parte immaginaria non nulla, il che implica una soluzione a spirale attorno al punto di equilibrio.
+          % 
+          % Per ⁠ xeq2 ⁠, hai un punto di sella instabile, poiché uno degli autovalori (⁠ aval1 ⁠) è positivo e l'altro è negativo.
+
 
           f1 = @(t, s) [r*s(1) - a*s(1)*s(2) + c/s(1); b*s(1)*s(2) - m*s(2) + D];
 
@@ -135,6 +148,10 @@ switch scelta
           %  -0.4000
           %  0.1224
           %  Stabilità: Instabile a sella
+          % Per ⁠ xeq1 ⁠, hai una spirale stabile, poiché entrambi gli autovalori (⁠ aval2 ⁠) hanno parte reale negativa, ma anche una parte immaginaria non nulla, il che implica una soluzione a spirale attorno al punto di equilibrio.
+          % 
+          % Per ⁠ xeq2 ⁠, hai un punto di sella instabile, poiché uno degli autovalori (⁠ aval1 ⁠) è positivo e l'altro è negativo.
+
 
           f1 = @(t, s) [r*s(1) - a*s(1)*s(2) + C; b*s(1)*s(2) - m*s(2) + d/s(2)];
 
@@ -157,6 +174,10 @@ switch scelta
           %  aval2 =
           %  0.0000 + 0.1414i
           %  0.0000 - 0.1414i
+          %
+          %Per ⁠ xeq1 ⁠, hai un punto di sella instabile, poiché uno degli autovalori (⁠ aval1 ⁠) è positivo e l'altro è negativo.
+          %
+          %Poiché entrambi gli autovalori in aval2 hanno parte reale nulla e parte immaginaria non nulla, il punto di equilibrio xeq2 dovrebbe essere classificato come "Stabile a centro"
 
           f1 = @(t, s) [r*s(1) - a*s(1)*s(2) + C; b*s(1)*s(2) - m*s(2) + D];
 
