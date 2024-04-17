@@ -2,8 +2,6 @@
 
 Elaborato Modellistica e Simulazione
 
-Docente: C. Carnevale
-
 Istruzioni
 
 - Consegnare script (con commenti) e schemi simulink.
