@@ -89,11 +89,6 @@ h=2*x1;
 T=[h;jacobian(h,[x1,x2])*f];
 
 
-
-% Per la prova fai questo: diff(h,x1)*f (senza considerare la seconda
-% componente)
-
-
 % Punto B
 
 %Linearizzo per trovare 
