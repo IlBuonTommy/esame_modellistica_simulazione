@@ -5,9 +5,10 @@ load("temperatura_10_23_clean.mat");
 % Sui file contrassegnati con _clean sono state effettuate delle operazioni di clean degli outslier e di data smoothing
 %https://www.arpalombardia.it/temi-ambientali/meteo-e-clima/form-richiesta-dati/
 
-y = table2array(Altezza(:, 2));
-u1 = table2array(Pioggia(:, 2));
-u2 = table2array(Temperatura(:, 2));
+% Estrazione dei dati dalle tabelle
+y = table2array(Altezza(:, 2)); % Estrazione dei dati dalla seconda colonna della tabella "Altezza"
+u1 = table2array(Pioggia(:, 2)); % Estrazione dei dati dalla seconda colonna della tabella "Pioggia"
+u2 = table2array(Temperatura(:, 2)); % Estrazione dei dati dalla seconda colonna della tabella "Temperatura"
 
 % Validazione dati
 % Trovo i valori non validi ovvero quelli con -999 e li sostituisco facendo
@@ -29,16 +30,16 @@ dati = iddata(y, [u1, u2], Ts);
 %Indica gli indici massimi ai quali la ricerca del modello verrà fermata
 ordine_max=10;
 passo_previsione=24; %tra quante ore deve predire il modello
-soglia_stop=0.11; %soglia di stop per l'euristica
+soglia_stop=0.11; %soglia di stop per l'euristica, MAE a cui si ferma la ricerca del modello
 
 fineIdentificazione=78888; %valore del 1 gen 2019
 dataset_identificazione=dati(1:fineIdentificazione);
 dataset_validazione=dati((fineIdentificazione+1):end);
 
-
+%richiama la funzione
 [modello_migliore, best_orders] = aStar(dataset_identificazione, dataset_validazione, passo_previsione, ordine_max, soglia_stop);
+%stampa l'ordine del miglior modello trovato
 disp(best_orders);
-
 
 ypredict=predict(modello_migliore,dataset_validazione,passo_previsione); %calcola i dati di output del modello in previsione
 %per portarlo in forma vettoriale 
