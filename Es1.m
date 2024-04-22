@@ -26,14 +26,10 @@ clc
 % b: tasso di conversione delle prede in predatori
 % m: tasso di mortalità dei predatori
 
-
-% f = [r*x - a*x*y + C; b*x*y - m*y + D];
-
-
-r = 0.1;
-a = 0.1;
-b = 0.3;
-m = 0.2;
+r = 0.1; 
+a = 0.1; 
+b = 0.3; 
+m = 0.2; 
 
 c = 0.01;
 d= 0.01;
@@ -53,7 +49,6 @@ switch scelta
 
         %  xeq1 =
         %  0     0
-        %
         %  xeq2 =
         %  0.6667    1.0000
         %
@@ -65,6 +60,7 @@ switch scelta
         %  aval2 =
         %  0.0000 + 0.1414i
         %  0.0000 - 0.1414i
+        %  Stabilità: centro
 
         f1 = @(t, s) [r*s(1) - a*s(1)*s(2) + C; b*s(1)*s(2) - m*s(2) + D];
 
@@ -75,7 +71,6 @@ switch scelta
 
         %  xeq1 =
         %  -0.1000         0
-        %
         %  xeq2 =
         %  0.6667    1.1500
 
@@ -87,7 +82,7 @@ switch scelta
         %  aval2 =
         %  -0.0075 + 0.1515i
         %  -0.0075 - 0.1515i
-        %  autovalore complesso, il punto di equilibrio è un fuoco stabile (parte Reale < 0) o un centro.
+        %  Due autovalori complessi con parte reale negativa (-0.0075)
         %  Stabilità: Stabile a spirale
 
         f1 = @(t, s) [r*s(1) - a*s(1)*s(2) + C; b*s(1)*s(2) - m*s(2) + D];
@@ -99,7 +94,6 @@ switch scelta
 
         %  xeq1 =
         %  0    0.0500
-        %
         %  xeq2 =
         %  0.6333    1.0000
 
@@ -123,7 +117,6 @@ switch scelta
 
         %  xeq1 =
         %  0.6667    1.2250
-        %
         %  xeq2 =
         %  0.0000 - 0.3162i   0.0000 + 0.0000i
 
@@ -146,7 +139,6 @@ switch scelta
 
         %  xeq1 =
         %  0.6333    1.0000
-        %
         %  xeq2 =
         %  0   -0.2236
 
@@ -180,29 +172,29 @@ xeq2 = double(xeq2_s)
 % Per determinare la stabilità di un punto di equilibrio, calcoliamo gli
 % autovalori della matrice jacobiana del sistema valutata nel punto di equilibrio.
 %
-% La matrice jacobiana è:
+% La matrice jacobiana del sistema è:
 %
 % J = [r - a*y, -a*x]
-%     [b*y, b*x - m]
+%     [b*y,  b*x - m]
 
 % Devo calcolare la jacobiana di f nelle direzioni di x,y
 A_s = jacobian(f,[x,y]); % [x,y] indica l'ordine (e quindi la colonna) delle derivate parziali
 % Calcolo la matrice A nel pto di equilibrio 1
-A1_s = subs(A_s,[x,y],xeq1)
+A1_s = subs(A_s,[x,y],xeq1);
 A1 = double(A1_s); % A questo punto A1 è una matrice di numeri reali e a me servono i suoi autovalori
-aval1 = eig(A1);
+aval1 = eig(A1)
 A2_s = subs(A_s,[x,y],xeq2);
 A2 = double(A2_s); % A questo punto A2 è una matrice di numeri reali e a me servono i suoi autovalori
-aval2 = eig(A2);
+aval2 = eig(A2)
 
-
+% Rappresentazione nello spazio delle fasi
 
 tspan = [0 1000];
 % Risolve il sistema
 [t, s] = ode45(f1, tspan, val_iniziali);
 
 % Plotto lo spazio della fase
-figure; clf;
+figure(1); clf;
 plot(s(:,1), s(:,2));
 xlabel('Grandezza popolazione prede');
 ylabel('Grandezza popolazione predatori');
