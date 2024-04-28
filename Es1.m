@@ -171,11 +171,6 @@ xeq2 = double(xeq2_s)
 % STABILITA' PUNTI DI EQUILIBRIO
 % Per determinare la stabilità di un punto di equilibrio, calcoliamo gli
 % autovalori della matrice jacobiana del sistema valutata nel punto di equilibrio.
-%
-% La matrice jacobiana del sistema è:
-%
-% J = [r - a*y, -a*x]
-%     [b*y,  b*x - m]
 
 % Devo calcolare la jacobiana di f nelle direzioni di x,y
 A_s = jacobian(f,[x,y]); % [x,y] indica l'ordine (e quindi la colonna) delle derivate parziali
